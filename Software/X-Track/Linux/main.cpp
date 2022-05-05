@@ -38,7 +38,11 @@ static void hal_init(const char* evdev_path)
     disp_drv.flush_cb   = fbdev_flush;
     disp_drv.hor_res    = width;
     disp_drv.ver_res    = height;
-    lv_disp_drv_register(&disp_drv);
+    disp_drv.sw_rotate  = 1;
+    lv_disp_t *lv_displ=lv_disp_drv_register(&disp_drv);
+
+    /*Rotate Display*/
+    lv_disp_set_rotation(lv_displ, LV_DISP_ROT_90);
 
     /*Input device*/
     evdev_init();
