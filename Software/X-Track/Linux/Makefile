@@ -59,11 +59,11 @@ OBJS = $(AOBJS) $(COBJS) $(CXXOBJS)
 all: default
 
 %.o: %.c
-	@$(CC)  $(CFLAGS) -c $< -o $@
+	$(CC)  $(CFLAGS) -c $< -o $@
 	@echo "CC $<"
 
 %.o: %.cpp
-	@$(CXX)  $(CXXFLAGS) -c $< -o $@
+	$(CXX)  $(CXXFLAGS) -c $< -o $@
 	@echo "CXX $<"
     
 default: $(AOBJS) $(COBJS) $(CXXOBJS) $(MAINOBJ)
